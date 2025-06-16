@@ -1,0 +1,15 @@
+{
+  "application": {
+    "nodes": {
+      "funh-sidebar-contribution-sidebar-application": {
+        "title": "Sidebar Application",
+        "supportiveText": "Sidebar Application - Supportive Text"
+      }
+    }
+  },
+  "sidebar-items":{
+    "funh-sidebar-contribution-sidebar-contribution":{
+      "title": "Sidebar Contribution"
+    }
+  }
+}

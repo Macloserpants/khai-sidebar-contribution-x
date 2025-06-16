@@ -1,0 +1,12 @@
+<div *ngIf="applicationNode" class="component">
+    <div class="section">
+        <ur-dialog-input
+            class="input-text"
+            [type]="'text'"
+            [label]="'Text for application'"
+            (valueChanged)="this.applicationNode.text=$event; this.saveNode()"
+            [value]="applicationNode.text"
+            [placeholder]="'Text for application'"
+        />
+    </div>
+</div>
