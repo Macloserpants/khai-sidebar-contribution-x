@@ -1,5 +1,6 @@
 metadata:
   vendorID: "funh"
+<<<<<<< HEAD
   urcapID: "sidebar-contribution-x"
   vendorName: "funh"
   urcapName: "Sidebar Contribution X"
@@ -8,3 +9,13 @@ artifacts:
   webArchives:
   - id: "sidebar-contribution-x"
     folder: "sidebar-contribution-x"
+=======
+  urcapID: "sidebar-contribution"
+  vendorName: "funh"
+  urcapName: "Sidebar Contribution"
+  version: 1.0.0
+artifacts:
+  webArchives:
+  - id: "sidebar-contribution"
+    folder: "sidebar-contribution"
+>>>>>>> 60eced23a9c21fc806b7b9e94b3eb1c586c6c83b
