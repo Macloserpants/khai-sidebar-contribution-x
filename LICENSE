@@ -1,15 +1,9 @@
 License Notice
 This example program is designed solely to demonstrate a specific purpose 
-<<<<<<< HEAD
 that we found maybe useful in URCap implementation based on personal opinion. 
 It is not affiliated with or endorsed by Universal Robots (UR). 
 Any representation or implication to the contrary is unintentional.
-=======
-that we found maybe useful in URCap impementation based on personal opinion. 
-It is not affiliated with 
-or endorsed by Universal Robots (UR). Any representation or implication 
-to the contrary is unintentional.
->>>>>>> 60eced23a9c21fc806b7b9e94b3eb1c586c6c83b
+
 The code and associated materials are provided "as is" without warranty 
 of any kind, either express or implied, including but not limited to the 
 implied warranties of merchantability, fitness for a particular purpose, 
