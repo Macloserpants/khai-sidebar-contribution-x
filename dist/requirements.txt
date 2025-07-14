@@ -1,0 +1,7 @@
+#This is a generated file. Editing this file will not affect the build
+@universal-robots/ui-angular-components:3.8.6
+@universal-robots/contribution-api:45.2.6
+@universal-robots/designtokens:0.13.4
+@universal-robots/ui-models:0.27.1
+@universal-robots/urcap-utils:1.3.1
+@universal-robots/utilities-units:5.10.0

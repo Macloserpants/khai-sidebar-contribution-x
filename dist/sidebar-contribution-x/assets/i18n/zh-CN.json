@@ -1,0 +1,21 @@
+{
+
+    "application": {
+      "nodes": {
+        "funh-sidebar-contribution-x-sidebar-contribution-x-app": {
+        "title": "Sidebar Contribution X App",
+        "supportiveText": "Sidebar Contribution X App - Supportive Text"
+        }
+      }
+    },
+    "sidebar-items": {
+      "funh-sidebar-contribution-x-sidebar-contribution-x-sidebar": {
+        "title": "工具栏菜单"
+    }
+    },
+    "sidebar":{
+        "text-from-application": "来自Application的文本: "
+    }
+  
+  }
+  

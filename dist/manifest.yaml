@@ -1,0 +1,10 @@
+metadata:
+  vendorID: "funh"
+  urcapID: "sidebar-contribution-x"
+  vendorName: "funh"
+  urcapName: "Sidebar Contribution X"
+  version: 1.0.0
+artifacts:
+  webArchives:
+  - id: "sidebar-contribution-x"
+    folder: "sidebar-contribution-x"

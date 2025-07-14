@@ -1,0 +1,24 @@
+{
+  "applicationNodes": [
+    {
+      "translationPath": "assets/i18n/",
+      "iconURI":"assets/icons/book-open-user.svg",
+      "behaviorURI": "sidebar-contribution-x-app.worker.js",
+      "presenterURI": "main.js",
+      "componentTagName": "funh-sidebar-contribution-x-sidebar-contribution-x-app"
+    }
+  ],
+  "programNodes": [],
+  "smartSkills": [],
+  "sidebarItems": [
+    {
+      "name": "funh-sidebar-contribution-x-sidebar-contribution-x-sidebar",
+      "iconURI": "assets/icons/book-open-user.svg",
+      "presenterURI": "main.js",
+      "componentTagName": "funh-sidebar-contribution-x-sidebar-contribution-x-sidebar",
+      "behaviorURI": "sidebar-contribution-x-sidebar.worker.js",
+      "translationPath": "assets/i18n/"
+    }
+  ],
+  "operatorScreens": []
+}
