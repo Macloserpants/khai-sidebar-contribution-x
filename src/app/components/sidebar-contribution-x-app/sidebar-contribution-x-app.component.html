@@ -4,7 +4,7 @@
             class="input-text"
             [type]="'text'"
             [label]="'Text for application'"
-            (valueChanged)="this.applicationNode.text=$event.toString(); this.saveNode()"
+            (valueChanged)="updateText($event.toString());"
             [value]="applicationNode.text"
             [placeholder]="'Text for application'"
         />

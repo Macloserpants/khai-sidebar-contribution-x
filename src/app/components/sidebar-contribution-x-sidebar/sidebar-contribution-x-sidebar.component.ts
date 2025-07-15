@@ -5,8 +5,9 @@ import {
   SidebarPresenterAPI
 } from '@universal-robots/contribution-api';
 import {TranslateService} from "@ngx-translate/core";
-import {first} from "rxjs";
+import {first, Subscription} from "rxjs";
 import { SidebarContributionXAppNode } from '../sidebar-contribution-x-app/sidebar-contribution-x-app.node';
+import { TextService } from '../sidebar-contribution-x-app/TextService';
 
 
 interface SignalSidebarItemPresenter extends Omit<SidebarItemPresenter, "robotSettings" | "presenterAPI"> {
@@ -20,16 +21,17 @@ interface SignalSidebarItemPresenter extends Omit<SidebarItemPresenter, "robotSe
   standalone: false
 })
 export class SidebarContributionXSidebarComponent implements SignalSidebarItemPresenter, OnChanges, OnDestroy, AfterContentInit {
-
+  appText: string = ''; //用于绑定模板
+  private textSubscription: Subscription; //保存订阅，用于销毁
   // @Input() sidebarScreen: SignalSidebarItemPresenter;
 
   presenterAPI = input<SidebarPresenterAPI | undefined>();
   robotSettings = input<RobotSettings | undefined>();
 
-  appText: string = '';
   constructor(
     protected readonly translateService: TranslateService,
-    protected readonly cd: ChangeDetectorRef
+    protected readonly cd: ChangeDetectorRef,
+    private textService: TextService //注入 TextService
   ){
 
   }
@@ -61,12 +63,23 @@ export class SidebarContributionXSidebarComponent implements SignalSidebarItemPr
     console.log('sidebar contribution open!');
     const appNode = await this.presenterAPI()?.applicationService
     .getApplicationNode('funh-sidebar-contribution-x-sidebar-contribution-x-app') as SidebarContributionXAppNode;
-    this.appText = appNode.text;
-    console.log('available app node text: ', this.appText);
-    this.cd.detectChanges(); //should manually trigger change detect!!
+
+    //订阅text变化
+    this.textSubscription = this.textService.text$.subscribe(text => {
+      this.appText = text; //更新本地变量
+      if(!text){
+        this.appText = appNode.text;
+      }
+      this.cd.detectChanges(); //触发OnPush 变更检测
+    });
   }
   ngOnDestroy(): void {
     console.log('sidebar contribution close!');
+
+    //销毁订阅，防止内存泄漏
+    if(this.textSubscription){
+      this.textSubscription.unsubscribe();
+    }
   }
 
 

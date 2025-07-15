@@ -6,11 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-<<<<<<< HEAD
     "sidebar-contribution-x": {
-=======
-    "sidebar-contribution": {
->>>>>>> 60eced23a9c21fc806b7b9e94b3eb1c586c6c83b
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -25,11 +21,7 @@
           "builder": "ngx-build-plus:browser",
           "options": {
             "singleBundle": true,
-<<<<<<< HEAD
             "outputPath": "dist/sidebar-contribution-x",
-=======
-            "outputPath": "dist/sidebar-contribution",
->>>>>>> 60eced23a9c21fc806b7b9e94b3eb1c586c6c83b
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -83,17 +75,10 @@
           },
           "configurations": {
             "production": {
-<<<<<<< HEAD
               "buildTarget": "sidebar-contribution-x:build:production"
             },
             "development": {
               "buildTarget": "sidebar-contribution-x:build:development"
-=======
-              "buildTarget": "sidebar-contribution:build:production"
-            },
-            "development": {
-              "buildTarget": "sidebar-contribution:build:development"
->>>>>>> 60eced23a9c21fc806b7b9e94b3eb1c586c6c83b
             }
           },
           "defaultConfiguration": "development"
@@ -101,11 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-<<<<<<< HEAD
             "buildTarget": "sidebar-contribution-x:build"
-=======
-            "buildTarget": "sidebar-contribution:build"
->>>>>>> 60eced23a9c21fc806b7b9e94b3eb1c586c6c83b
           }
         },
         "lint": {

@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
 
   "application": {
     "nodes": {
@@ -18,19 +17,4 @@
       "text-from-application": "text from Application: "
   }
 
-=======
-  "application": {
-    "nodes": {
-      "funh-sidebar-contribution-sidebar-application": {
-        "title": "Sidebar Application",
-        "supportiveText": "Sidebar Application - Supportive Text"
-      }
-    }
-  },
-  "sidebar-items":{
-    "funh-sidebar-contribution-sidebar-contribution":{
-      "title": "Sidebar Contribution"
-    }
-  }
->>>>>>> 60eced23a9c21fc806b7b9e94b3eb1c586c6c83b
 }

@@ -1,3 +1,9 @@
+This sample demonstrates sidebar contribution based on PolyscopeX 10.8(with SDK 0.15.59), it shows a proper way of implementing a Sidebar service + configuring icon + calling available Application node dataset and reflecting value on DOM when re-opening the view.
+
+Date of last update: 2025-July-15
+Author: FuNing Hu (funh@universal-robots.com)
+Place: UR Shanghai
+
 # Angular contribution
 
 This project is a template Angular example of a URCap Web Contribution

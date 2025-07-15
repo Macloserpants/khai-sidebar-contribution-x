@@ -2,21 +2,14 @@
   "applicationNodes": [
     {
       "translationPath": "assets/i18n/",
-<<<<<<< HEAD
       "iconURI":"assets/icons/book-open-user.svg",
       "behaviorURI": "sidebar-contribution-x-app.worker.js",
       "presenterURI": "main.js",
       "componentTagName": "funh-sidebar-contribution-x-sidebar-contribution-x-app"
-=======
-      "behaviorURI": "sidebar-application.worker.js",
-      "presenterURI": "main.js",
-      "componentTagName": "funh-sidebar-contribution-sidebar-application"
->>>>>>> 60eced23a9c21fc806b7b9e94b3eb1c586c6c83b
     }
   ],
   "programNodes": [],
   "smartSkills": [],
-<<<<<<< HEAD
   "sidebarItems": [
     {
       "name": "funh-sidebar-contribution-x-sidebar-contribution-x-sidebar",
@@ -28,17 +21,4 @@
     }
   ],
   "operatorScreens": []
-=======
-  "sidebar":[
-    {
-      "name": "sidebar-contribution",
-      "iconURI": "assets/icons/book-open-user.svg",
-      "presenterURI":"main.js",
-      "behaviorURI":"sidebar-contribution.worker.js",
-      "translationPath":"assets/i18n/",
-      "componentTagName":"funh-sidebar-contribution-sidebar-contribution",
-      "size":"large"
-    }
-  ]
->>>>>>> 60eced23a9c21fc806b7b9e94b3eb1c586c6c83b
 }
