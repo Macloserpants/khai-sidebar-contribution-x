@@ -22,18 +22,18 @@
           "options": {
             "singleBundle": true,
             "outputPath": "dist/sidebar-contribution-x",
-            "index": "src/index.html",
-            "main": "src/main.ts",
+            "index": "src/frontend/index.html",
+            "main": "src/frontend/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/contribution.json",
-              "src/assets"
+              "src/frontend/contribution.json",
+              "src/frontend/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/frontend/styles.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -52,8 +52,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "src/frontend/environments/environment.ts",
+                  "with": "src/frontend/environments/environment.prod.ts"
                 }
               ]
             },

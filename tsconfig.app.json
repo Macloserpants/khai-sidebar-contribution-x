@@ -8,10 +8,10 @@
     "strictNullChecks": true
   },
   "files": [
-    "src/main.ts"
+    "src/frontend/main.ts"
   ],
   "exclude": [
-    "src/**/*.spec.ts",
-    "src/**/*.worker.ts"
+    "src/frontend/**/*.spec.ts",
+    "src/frontend/**/*.worker.ts"
   ]
 }
