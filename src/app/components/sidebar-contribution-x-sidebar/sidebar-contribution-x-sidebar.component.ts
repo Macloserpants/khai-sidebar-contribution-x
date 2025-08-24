@@ -22,7 +22,9 @@ interface SignalSidebarItemPresenter extends Omit<SidebarItemPresenter, "robotSe
 })
 export class SidebarContributionXSidebarComponent implements SignalSidebarItemPresenter, OnChanges, OnDestroy, AfterContentInit {
   appText: string = ''; //用于绑定模板
+  isOn: boolean = false;
   private textSubscription: Subscription; //保存订阅，用于销毁
+  
   // @Input() sidebarScreen: SignalSidebarItemPresenter;
 
   presenterAPI = input<SidebarPresenterAPI | undefined>();
@@ -93,5 +95,25 @@ export class SidebarContributionXSidebarComponent implements SignalSidebarItemPr
   // }
   saveNode(){
     this.cd.detectChanges();
+  }
+  onMyButtonClick(): void {
+    console.log('UR Button clicked inside SidebarContributionXSidebarComponent!');
+  // Add your custom logic here
+  // For example: call a service, update appText, or save node
+  this.appText = 'Button was clicked!';
+  this.cd.detectChanges();
+  }
+
+  toggle(): void {
+  this.isOn = !this.isOn;
+  
+  if(!this.isOn) {
+    this.appText = 'Toggle Off!'
+  }
+  
+  else {
+    this.appText = 'Toggle On!'
+  }
+  console.log('Toggle state:', this.isOn);
   }
 }

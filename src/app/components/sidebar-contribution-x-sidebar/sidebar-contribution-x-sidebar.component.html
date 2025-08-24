@@ -4,3 +4,22 @@
     <!-- <button (click)="switchToChinese()">切换到中文</button>
     <button (click)="switchToEnglish()">Swithc to English</button> -->
 </div>
+
+<div class="example">
+  <ur-button
+    type="cta"
+    (handleClick)="onMyButtonClick()"
+    [disabled]="false"
+  >
+    {{ 'presenter.example.button' | translate }}
+  </ur-button>
+    
+  <ur-button
+    type="cta"
+    (handleClick)="toggle()"
+    >
+      {{ isOn ? ('presenter.toggle.on' | translate) : ('presenter.toggle.off' | translate) }}
+  </ur-button>
+</div>
+
+
