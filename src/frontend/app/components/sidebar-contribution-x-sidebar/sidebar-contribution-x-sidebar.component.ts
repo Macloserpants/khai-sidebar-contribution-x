@@ -1,6 +1,5 @@
 import {AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, input, InputSignal, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {
-  ApplicationPresenterAPI,
   RobotSettings,
   SidebarItemPresenter,
   SidebarPresenterAPI,
@@ -16,7 +15,7 @@ import { RosHelper } from '../../RosHelper';
 
 interface SignalSidebarItemPresenter extends Omit<SidebarItemPresenter, "robotSettings" | "presenterAPI"> {
   robotSettings: InputSignal<RobotSettings | undefined>;
-  presenterAPI: InputSignal<SidebarPresenterAPI | "ros2Client">;
+  presenterAPI: InputSignal<SidebarPresenterAPI | undefined>;
 }
 @Component({
   templateUrl: './sidebar-contribution-x-sidebar.component.html',
@@ -24,45 +23,41 @@ interface SignalSidebarItemPresenter extends Omit<SidebarItemPresenter, "robotSe
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: false
 })
-
 export class SidebarContributionXSidebarComponent implements SignalSidebarItemPresenter, OnChanges, OnDestroy, AfterContentInit {
-  appText: string = ''; //用于绑定模板
-  private textSubscription: Subscription; //保存订阅，用于销毁
+  appText: string = '';
+  isOn: boolean = false;
+  IO_status_check: number;
+
+  private ros2Client: Ros2Client;
+  private textSubscription: Subscription;
+  private subscription: Subscription; 
+  
   // @Input() sidebarScreen: SignalSidebarItemPresenter;
 
   presenterAPI = input<SidebarPresenterAPI | undefined>();
-  // applicationAPI = input<ApplicationPresenterAPI | undefined>();
   robotSettings = input<RobotSettings | undefined>();
-
-  private ros2Client?: Ros2Client;
-  IO_status_check: number;
-  private subscription: Subscription | undefined;
-
 
   constructor(
     protected readonly translateService: TranslateService,
     protected readonly cd: ChangeDetectorRef,
-    private textService: TextService, //注入 TextService
-
+    private textService: TextService
   ){
 
   }
   
-  async ngOnChanges(changes: SimpleChanges): Promise<void> {
-    if (changes.applicationAPI?.firstChange) {
-        const rosClient = this.applicationAPI()?.ros2Client;
-        if (!rosClient) {
-            console.warn("ROS2 client not available yet");
-            return;
-        }
+  ngOnChanges(changes: SimpleChanges): void {
+    // if (changes.applicationAPI?.firstChange) {
+    // const rosClient = this.ros2Client;
+    // if (!rosClient) {
+    //     console.warn("ROS2 client not available yet");
+    //     return;
+    // }
 
-        this.subscription = (
-            await RosHelper.subscribeToAnalogStatus(rosClient)
-        ).subscribe((msg) => {
-            this.IO_status_check = msg.value;
-            this.cd.detectChanges();
-        });
-    }
+    // this.subscription = ( await RosHelper.subscribeToAnalogStatus(rosClient)).subscribe((msg) => {
+    //         this.IO_status_check = msg.value;
+    //         this.cd.detectChanges();
+    //     });
+    // }
 
     if(changes?.robotSettings){
       if(!changes?.robotSettings?.currentValue){
@@ -91,7 +86,6 @@ export class SidebarContributionXSidebarComponent implements SignalSidebarItemPr
     const appNode = await this.presenterAPI()?.applicationService
     .getApplicationNode('funh-sidebar-contribution-x-sidebar-contribution-x-app') as SidebarContributionXAppNode;
 
-    //订阅text变化
     this.textSubscription = this.textService.text$.subscribe(text => {
       this.appText = text; //更新本地变量
       if(!text){
@@ -101,28 +95,38 @@ export class SidebarContributionXSidebarComponent implements SignalSidebarItemPr
     });
   }
   ngOnDestroy(): void {
-    console.log('Sidebar contribution close!');
+    console.log('sidebar contribution close!');
 
-    //销毁订阅，防止内存泄漏
     if(this.textSubscription){
       this.textSubscription.unsubscribe();
     }
   }
+
   saveNode(){
     this.cd.detectChanges();
   }
-  // KHAIRUL BUTTON TEST
   onMyButtonClick(): void {
     console.log('UR Button clicked inside SidebarContributionXSidebarComponent!');
-  // Add your custom logic here
-  // For example: call a service, update appText, or save node
   this.appText = 'Button was clicked!';
   this.cd.detectChanges();
+  }
+
+  toggle(): void {
+  this.isOn = !this.isOn;
+  
+  if(!this.isOn) {
+    this.appText = 'Toggle Off!'
+  }
+  
+  else {
+    this.appText = 'Toggle On!'
+  }
+  console.log('Toggle state:', this.isOn);
   }
 
   // KHAIRUL ROS
 
   getIOState() {
-    return this.IO_status_check
+    return this.IO_status_check;
   }
 }

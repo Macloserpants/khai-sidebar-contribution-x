@@ -13,17 +13,17 @@ import {
 import {URCAP_ROS_NAMESPACE} from '../generated/contribution-constants';
 import {Observable} from 'rxjs';
 
-export const ROS_SET_FORCE = 'set_force';
-export const ROS_STATUS = 'status';
-export const ROS_OPEN_CLOSE = 'open_close';
+// export const ROS_SET_FORCE = 'set_force';
+// export const ROS_STATUS = 'status';
+// export const ROS_OPEN_CLOSE = 'open_close';
 
-// export enum GripperAction {
-//     close = 'CLOSE',
-//     open = 'OPEN',
-// }
+// // export enum GripperAction {
+// //     close = 'CLOSE',
+// //     open = 'OPEN',
+// // }
 
-// export const openStatus = 'OPEN';
-// export const closedStatus = 'CLOSED';
+// // export const openStatus = 'OPEN';
+// // export const closedStatus = 'CLOSED';
 
 export class RosHelper {
     public static async subscribeToAnalogStatus(
@@ -118,5 +118,5 @@ export class RosHelper {
     //         ]
     //     };
     //     return argumentValues;
-    }
+    // }
 }

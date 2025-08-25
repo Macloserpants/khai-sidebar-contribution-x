@@ -93,8 +93,8 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
+              "src/frontend/**/*.ts",
+              "src/frontend/**/*.html"
             ]
           }
         },
@@ -109,10 +109,10 @@
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/assets"
+              "src/frontend/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/frontend/styles.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
