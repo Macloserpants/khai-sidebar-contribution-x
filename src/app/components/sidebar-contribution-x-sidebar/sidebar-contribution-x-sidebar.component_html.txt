@@ -22,9 +22,4 @@
   </ur-button>
 </div>
 
-<div class="ros-topic-subcription">
-         <p>{{'sidebar.Analog_IO_Status1' | translate}} {{ IO_status_check }}</p>
-         <p>{{'sidebar.Analog_IO_Status2' | translate}} {{ IO_temp_str }}</p> 
-</div>
-
 
