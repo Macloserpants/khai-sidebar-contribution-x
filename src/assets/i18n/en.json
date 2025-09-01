@@ -1,20 +1,8 @@
 {
-
-  "application": {
-    "nodes": {
-      "funh-sidebar-contribution-x-sidebar-contribution-x-app": {
-      "title": "Sidebar Contribution X App",
-      "supportiveText": "Sidebar Contribution X App - Supportive Text"
-      }
+  "operator-screen": {
+     "simple-operator-screen": {
+      "title": "Simple Operator Screen"
     }
-  },
-  "sidebar-items": {
-    "funh-sidebar-contribution-x-sidebar-contribution-x-sidebar": {
-      "title": "Sidebar Contribution X Sidebar"
   }
-  },
-  "sidebar":{
-      "text-from-application": "text from Application: "
-  }
-
 }
+

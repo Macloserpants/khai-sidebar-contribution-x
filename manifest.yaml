@@ -1,10 +1,10 @@
 metadata:
-  vendorID: "funh"
-  urcapID: "sidebar-contribution-x"
-  vendorName: "funh"
-  urcapName: "Sidebar Contribution X"
+  vendorID: "kham"
+  urcapID: "simple-operator-screen"
+  vendorName: "kham"
+  urcapName: "Simple Operator Screen"
   version: 1.0.0
 artifacts:
   webArchives:
-  - id: "sidebar-contribution-x"
-    folder: "sidebar-contribution-x"
+  - id: "simple-operator-screen"
+    folder: "dist/simple-operator-screen"

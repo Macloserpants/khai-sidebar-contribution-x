@@ -1,14 +1,15 @@
 import { DoBootstrap, Injector, NgModule } from '@angular/core';
-import { SidebarContributionXAppComponent } from './components/sidebar-contribution-x-app/sidebar-contribution-x-app.component';
-import { SidebarContributionXSidebarComponent } from './components/sidebar-contribution-x-sidebar/sidebar-contribution-x-sidebar.component';
+import { SimpleOperatorScreenComponent } from './components/simple-operator-screen/simple-operator-screen.component';
 import { UIAngularComponentsModule } from '@universal-robots/ui-angular-components';
 import { BrowserModule } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
 import { HttpBackend, HttpClientModule } from '@angular/common/http';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
-import {MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MultiTranslateHttpLoader } from 'ngx-translate-multi-http-loader';
 import { PATH } from '../generated/contribution-constants';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { LogoComponent } from "./components/simple-operator-screen-logo/logo.component";
+import { IntegratorInfoComponent } from "./components/simple-operator-screen-integrator-info/integrator-info.component";
 
 export const httpLoaderFactory = (http: HttpBackend) =>
     new MultiTranslateHttpLoader(http, [
@@ -17,52 +18,40 @@ export const httpLoaderFactory = (http: HttpBackend) =>
     ]);
 
 @NgModule({
-  declarations: [
-        SidebarContributionXAppComponent,
-        SidebarContributionXSidebarComponent
-   ],
+    declarations: [
+        SimpleOperatorScreenComponent
+    ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         UIAngularComponentsModule,
         HttpClientModule,
         TranslateModule.forRoot({
-            loader: { provide: TranslateLoader, useFactory: httpLoaderFactory, deps: [HttpBackend] },
+            loader: {provide: TranslateLoader, useFactory: httpLoaderFactory, deps: [HttpBackend]},
             useDefaultLang: false,
-        })
+        }),
+        LogoComponent,
+        IntegratorInfoComponent,
     ],
     providers: [],
 })
 
 export class AppModule implements DoBootstrap {
-    constructor(
-        private injector: Injector,
-        private translate: TranslateService
-    ) {
-        translate.setDefaultLang('en');
-        translate.use('en');
+    constructor(private injector: Injector) {
     }
 
-  async ngDoBootstrap() {
-        const sidebarcontributionxappComponent = createCustomElement(SidebarContributionXAppComponent, {injector: this.injector});
-        customElements.define('funh-sidebar-contribution-x-sidebar-contribution-x-app', sidebarcontributionxappComponent);
-        const sidebarcontributionxsidebarComponent = createCustomElement(SidebarContributionXSidebarComponent, {injector: this.injector});
-        customElements.define('funh-sidebar-contribution-x-sidebar-contribution-x-sidebar', sidebarcontributionxsidebarComponent);
+    ngDoBootstrap() {
+        const simpleoperatorscreenComponent = createCustomElement(SimpleOperatorScreenComponent, {injector: this.injector});
+        customElements.define('simple-operator-screen', simpleoperatorscreenComponent);
     }
 
-  // This function is never called, because we don't want to actually use the workers, just tell webpack about them
-  registerWorkersWithWebPack() {
-        new Worker(new URL('./components/sidebar-contribution-x-app/sidebar-contribution-x-app.behavior.worker.ts'
-            /* webpackChunkName: "sidebar-contribution-x-app.worker" */, import.meta.url), {
-            name: 'sidebar-contribution-x-app',
-            type: 'module'
-        });
-        new Worker(new URL('./components/sidebar-contribution-x-sidebar/sidebar-contribution-x-sidebar.behavior.worker.ts'
-            /* webpackChunkName: "sidebar-contribution-x-sidebar.worker" */, import.meta.url), {
-            name: 'sidebar-contribution-x-sidebar',
-            type: 'module'
-        });
-     
+    // This function is never called, because we don't want to actually use the workers, just tell webpack about them
+    registerWorkersWithWebPack() {
+        new Worker(new URL('./components/simple-operator-screen/simple-operator-screen.behavior.worker.ts'
+        /* webpackChunkName: "simple-operator-screen.worker" */, import.meta.url), {
+        name: 'simple-operator-screen',
+        type: 'module'
+      });
     }
 }
 

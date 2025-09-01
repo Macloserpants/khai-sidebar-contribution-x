@@ -21,7 +21,7 @@
           "builder": "ngx-build-plus:browser",
           "options": {
             "singleBundle": true,
-            "outputPath": "dist/sidebar-contribution-x",
+            "outputPath": "dist/simple-operator-screen",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [

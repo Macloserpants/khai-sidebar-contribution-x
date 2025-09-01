@@ -1,0 +1,48 @@
+:host {
+  height: 100%;
+  // Layout: 2 rows, 3 equal-width columns.
+  display: grid;
+  --operator-screen-width: calc(100vw - var(--primary-navigation-width) - var(--persistent-drawer-width) - 4 * var(--spacing-06));
+  grid-template-columns: repeat(3, minmax(calc(var(--operator-screen-width) / 3), 1fr));
+  grid-template-rows: 106px minmax(0, 1fr);
+  grid-template-areas:
+        'robot-status logo logo'
+        'config status model';
+  gap: var(--spacing-06); // inner gutters
+
+  justify-items: stretch;
+  align-items: stretch;
+  background-color: var(--color-background-level-01);
+  padding: var(--spacing-06); // 'outer' gutters
+  box-sizing: border-box;
+
+  .card {
+    background-color: var(--color-background-level-02);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-01);
+  }
+
+  .robot-status {
+    grid-area: robot-status;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .configuration {
+    grid-area: config;
+    align-self: start; // fill with items from top to bottom
+    max-height: 100%; // switch to scroll bar when out of screen estate
+  }
+
+  .status {
+    grid-area: status;
+    align-self: start; // fill with items from top to bottom
+    max-height: 100%; // switch to scroll bar when out of screen estate
+  }
+
+  .model {
+    grid-area: model;
+  }
+}

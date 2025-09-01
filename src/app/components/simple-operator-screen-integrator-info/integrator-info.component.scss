@@ -1,0 +1,38 @@
+:host {
+    padding: var(--spacing-05) var(--spacing-07);
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    align-items: center;
+    justify-items: center;
+
+    > * {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    %card-part {
+        display: flex;
+        flex-direction: column;
+        row-gap: var(--spacing-03);
+        justify-self: start;
+    }
+
+    .vendor-name {
+        @extend %card-part;
+    }
+
+    .divider {
+        background-color: var(--color-border-separator);
+        height: 100%;
+        width: 100%;
+    }
+
+    .urcap-name {
+        @extend %card-part;
+        margin-left: var(--spacing-07);
+    }
+
+    .label {
+        color: var(--color-font-secondary);
+    }
+}

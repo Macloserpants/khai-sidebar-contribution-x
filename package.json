@@ -17,8 +17,8 @@
     "clean:dist": "rimraf ./dist",
     "clean:target": "rimraf ./target",
     "generatepath": "generate-manifest-constants ./manifest.yaml",
-    "install-urcap": "install-urcap 'target/sidebar-contribution-x*.urcapx'",
-    "delete-urcap": "delete-urcap funh sidebar-contribution-x"
+    "install-urcap": "install-urcap 'target/simple-operator-screen*.urcapx'",
+    "delete-urcap": "delete-urcap funh simple-operator-screen"
   },
   "private": true,
   "license": "Apache-2.0",
